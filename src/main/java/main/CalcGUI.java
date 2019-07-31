@@ -25,6 +25,9 @@ public class CalcGUI extends JFrame {
     private JButton button2;
     private JButton button3;
     private JButton enterButton;
+    private JButton clearButton;
+    private JButton button5;
+    private JButton button6;
 
     public CalcGUI() {
         super("Калькулятор на Java");
@@ -33,56 +36,99 @@ public class CalcGUI extends JFrame {
         setVisible(true);
         setResizable(false);
         setContentPane(panel1);
-        UIManager.getSystemLookAndFeelClassName();
+
 
         a0Button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                textField1.setText("0");
+                textField1.setText(textField1.getText() + "0");
             }
         });
         a1Button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                textField1.setText("1");
+                textField1.setText(textField1.getText() + "1");
             }
         });
         a2Button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                textField1.setText("2");
+                textField1.setText(textField1.getText() + "2");
             }
         });
         a3Button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                textField1.setText("3");
+                textField1.setText(textField1.getText() + "3");
             }
         });
         a4Button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                textField1.setText("4");
+                textField1.setText(textField1.getText() + "4");
             }
         });
         a5Button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                textField1.setText("5");
+                textField1.setText(textField1.getText() + "5");
             }
         });
         a6Button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                textField1.setText("6");
+                textField1.setText(textField1.getText() + "6");
             }
         });
         a7Button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                textField1.setText("7");
+                textField1.setText(textField1.getText() + "7");
             }
         });
         a8Button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                textField1.setText("8");
+                textField1.setText(textField1.getText() + "8");
             }
         });
         a9Button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                textField1.setText("9");
+                textField1.setText(textField1.getText() + "9");
+            }
+        });
+
+
+        clearButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                textField1.setText("");
+            }
+        });
+        button1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                textField1.setText(textField1.getText() + " + ");
+            }
+        });
+        button2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                textField1.setText(textField1.getText() + " - ");
+            }
+        });
+        button3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                textField1.setText(textField1.getText() + " * ");
+            }
+        });
+        button12.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                textField1.setText(textField1.getText() + " / ");
+            }
+        });
+        button4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                textField1.setText(textField1.getText() + " % ");
+            }
+        });
+
+        button5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                textField1.setText(textField1.getText() + " ( ");
+            }
+        });
+        button6.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                textField1.setText(textField1.getText() + " ) ");
             }
         });
     }
