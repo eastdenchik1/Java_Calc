@@ -3,6 +3,9 @@ package main;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class CalcGUI extends JFrame {
 
@@ -89,6 +92,11 @@ public class CalcGUI extends JFrame {
             }
         });
 
+        final List<String> operations = new ArrayList<String>(
+                Arrays.asList("/","*","-","+","%","(",")")
+        );
+
+
 
         clearButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -129,6 +137,44 @@ public class CalcGUI extends JFrame {
         button6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 textField1.setText(textField1.getText() + " ) ");
+            }
+        });
+        enterButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String text = textField1.getText();
+
+                List<String> textList = new ArrayList<String>(
+                        Arrays.asList(text.split(" "))
+                );
+                List<Integer> nums = new ArrayList<Integer>();
+                List<String> opers = new ArrayList<String>();
+
+
+                if (!text.equals("")) {
+
+                    for (String elem: textList) {
+                        if (!operations.contains(elem)){
+                            nums.add(Integer.parseInt(elem));
+                        } else {
+                            opers.add(elem);
+                        }
+                    }
+
+                    if (opers.size() >= nums.size()) {
+                        textField1.setText("Error! Wrong equation.");
+                    }
+
+                    long res = 0;
+                    for (int i = 1; i < nums.size(); i++) {
+                        res += new Ariphmetic().add(nums.get(i - 1), nums.get(i));
+                    }
+                    textField1.setText("= " + res);
+
+
+                } else {
+                    textField1.setText("Error! U don't enter values.");
+                }
+
             }
         });
     }
